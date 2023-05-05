@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: multistage_web.Dockerfile
+    depends_on:
+      - words
+    ports:
+      - "80:80"
+  words:
+    build:
+      context: ./words
+      dockerfile: multistage_words.Dockerfile
